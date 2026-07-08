@@ -334,6 +334,8 @@ function Index() {
           <p>© {new Date().getFullYear()} Belize Masters Tours · San Pedro, Belize</p>
         </div>
       </footer>
+
+      <ChatWidget />
     </div>
   );
 }
