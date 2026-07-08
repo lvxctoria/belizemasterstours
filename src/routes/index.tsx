@@ -91,6 +91,7 @@ const tours: Tour[] = [
 ];
 
 function Index() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="absolute top-0 left-0 right-0 z-20">
@@ -110,16 +111,69 @@ function Index() {
             <a href="#reviews" className="hover:text-white">Reviews</a>
             <a href="#contact" className="hover:text-white">Contact</a>
           </div>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full gradient-sun px-4 py-2 text-sm font-semibold text-deep shadow-lg shadow-black/20 transition hover:scale-105"
-          >
-            Book Now
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden rounded-full gradient-sun px-4 py-2 text-sm font-semibold text-deep shadow-lg shadow-black/20 transition hover:scale-105 sm:inline-block"
+            >
+              Book Now
+            </a>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen(true)}
+              className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white backdrop-blur md:hidden"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </nav>
+
+        {mobileOpen && (
+          <div className="absolute left-0 right-0 top-0 bg-deep/95 px-5 pb-6 pt-5 shadow-2xl backdrop-blur md:hidden">
+            <div className="flex items-center justify-between">
+              <a href="#top" className="flex items-center gap-2 text-white" onClick={() => setMobileOpen(false)}>
+                <span className="grid h-9 w-9 place-items-center rounded-full gradient-sun font-display text-lg font-black text-deep">
+                  B
+                </span>
+                <span className="font-display text-lg font-bold tracking-tight">Belize Masters Tours</span>
+              </a>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setMobileOpen(false)}
+                className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="mt-6 flex flex-col gap-4 text-base font-medium text-white/90">
+              <a href="#tours" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Tours</a>
+              <a href="#about" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">About</a>
+              <a href="#gallery" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Gallery</a>
+              <a href="#reviews" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Reviews</a>
+              <a href="#contact" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Contact</a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 rounded-full gradient-sun px-5 py-3 text-center text-sm font-semibold text-deep"
+              >
+                Book Now
+              </a>
+            </div>
+          </div>
+        )}
       </header>
+
 
       <section id="top" className="relative min-h-[92vh] overflow-hidden">
         <img
@@ -435,7 +489,7 @@ function GallerySection() {
   const go = (delta: number) => setIdx((i) => (i + delta + total) % total);
 
   return (
-    <section id="gallery" className="bg-deep py-20 text-white sm:py-28">
+    <section id="gallery" className="scroll-mt-24 bg-deep py-20 text-white sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="mb-10 text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-sun">
