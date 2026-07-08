@@ -77,21 +77,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Belize Masters Tours — Snorkel Hol Chan & Shark Ray Alley from San Pedro" },
+      {
+        name: "description",
+        content:
+          "Top-rated San Pedro boat tours: snorkel Hol Chan Marine Reserve, swim with sharks & rays, Caye Caulker day trips, private charters & beach BBQ. 4.9★ on Google.",
+      },
+      { name: "author", content: "Belize Masters Tours" },
+      { property: "og:title", content: "Belize Masters Tours — San Pedro, Belize" },
+      {
+        property: "og:description",
+        content:
+          "Snorkel Hol Chan & Shark Ray Alley, Caye Caulker day trips, private charters and beach BBQ from San Pedro, Ambergris Caye.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
