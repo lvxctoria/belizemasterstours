@@ -4,7 +4,16 @@ import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
 import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
 import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
 import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
-import tourBacalarAsset from "@/assets/tour-bacalar.jpg.asset.json";
+import tourBacalarAsset from "@/assets/gallery-img_6029.jpeg.asset.json";
+import galleryImg1 from "@/assets/gallery-img_6029.jpeg.asset.json";
+import galleryImg2 from "@/assets/gallery-img_60242.jpeg.asset.json";
+import galleryImg3 from "@/assets/gallery-img_6022.jpeg.asset.json";
+import galleryImg4 from "@/assets/gallery-img_6026.jpeg.asset.json";
+import galleryImg5 from "@/assets/gallery-img_5560.jpeg.asset.json";
+import galleryVid1 from "@/assets/gallery-video-2025-10-29-21-21-38-2.mov.asset.json";
+import galleryVid2 from "@/assets/gallery-video-2025-10-29-21-21-38.mov.asset.json";
+import galleryVid3 from "@/assets/gallery-video-2025-10-29-21-21-39.mov.asset.json";
+import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
 
 const tourSharkRay = tourSharkRayAsset.url;
