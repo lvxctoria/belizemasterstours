@@ -106,6 +106,7 @@ function Index() {
           <div className="hidden items-center gap-8 text-sm font-medium text-white/90 md:flex">
             <a href="#tours" className="hover:text-white">Tours</a>
             <a href="#about" className="hover:text-white">About</a>
+            <a href="#gallery" className="hover:text-white">Gallery</a>
             <a href="#reviews" className="hover:text-white">Reviews</a>
             <a href="#contact" className="hover:text-white">Contact</a>
           </div>
