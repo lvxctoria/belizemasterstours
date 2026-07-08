@@ -27,7 +27,7 @@ type Tour = {
 const tours: Tour[] = [
   {
     title: "Hol Chan & Shark Ray Alley",
-    price: "$130",
+    price: "From $75",
     duration: "3h 30m",
     tag: "Most Popular",
     desc: "Snorkel the crown jewel of Belize's barrier reef and swim beside nurse sharks and stingrays in crystal-clear water.",
@@ -36,7 +36,7 @@ const tours: Tour[] = [
   },
   {
     title: "Caye Caulker Island Day Trip",
-    price: "$230",
+    price: "From $100",
     duration: "7h",
     tag: "Full Day",
     desc: "Two-reef snorkel plus island time on laid-back Caye Caulker — fresh seafood, palm trees and the famous Split.",
@@ -45,7 +45,7 @@ const tours: Tour[] = [
   },
   {
     title: "Fishing, Snorkel & Beach BBQ",
-    price: "$1,200",
+    price: "From $135",
     duration: "Private Day",
     tag: "Private Charter",
     desc: "Your own boat, your own captain. Reef fishing, snorkeling stops and a fresh-caught barbecue on a private beach.",
