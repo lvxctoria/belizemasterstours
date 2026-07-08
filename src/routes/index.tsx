@@ -1,9 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroReef from "@/assets/hero-reef.jpg";
-import tourSharkRay from "@/assets/tour-sharkray.jpg";
-import tourCayeCaulker from "@/assets/tour-cayecaulker.jpg";
-import tourBbq from "@/assets/tour-bbq.jpg";
+import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
+import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
+import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
+import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
+import tourBacalarAsset from "@/assets/tour-bacalar.jpg.asset.json";
 import ChatWidget from "@/components/ChatWidget";
+
+const tourSharkRay = tourSharkRayAsset.url;
+const tourCayeCaulker = tourCayeCaulkerAsset.url;
+const tourBbq = tourBbqAsset.url;
+const tourCave = tourCaveAsset.url;
+const tourBacalar = tourBacalarAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
