@@ -61,6 +61,24 @@ const tours: Tour[] = [
     image: tourBbq,
     highlights: ["Private group charter", "Catch & grill on the beach", "Fully customizable"],
   },
+  {
+    title: "Bacalar Chico Snorkel & Beach BBQ",
+    price: "From $165",
+    duration: "Full Day",
+    tag: "Hidden Gem",
+    desc: "Cruise the mangrove river hunting for manatees, snorkel pristine Rocky Point reef, then feast on a fresh BBQ lunch on a secluded beach — capped with sharks and rays on the way home.",
+    image: tourBacalar,
+    highlights: ["Manatee spotting river", "Rocky Point reef snorkel", "Private beach BBQ lunch"],
+  },
+  {
+    title: "Cave Tubing & Zip Line Adventure",
+    price: "From $230",
+    duration: "Full Day",
+    tag: "Epic Adventure",
+    desc: "The ultimate mainland day: soar through the jungle canopy on zip lines, then float on a tube through ancient Mayan caves. Boat transfer, breakfast and lunch all included.",
+    image: tourCave,
+    highlights: ["Jungle zip lining", "Guided cave tubing", "Breakfast & lunch included"],
+  },
 ];
 
 function Index() {
