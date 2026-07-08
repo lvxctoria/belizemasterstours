@@ -407,3 +407,122 @@ function Stars() {
     </div>
   );
 }
+
+type GalleryItem = { type: "image" | "video"; src: string; alt: string };
+
+const galleryItems: GalleryItem[] = [
+  { type: "image", src: galleryImg1.url, alt: "Guests on a mangrove boat tour" },
+  { type: "video", src: galleryVid1.url, alt: "Tour highlights video" },
+  { type: "image", src: galleryImg2.url, alt: "Beach BBQ feast on the sand" },
+  { type: "video", src: galleryVid2.url, alt: "On-the-water moments" },
+  { type: "image", src: galleryImg3.url, alt: "Exploring Mayan ruins" },
+  { type: "video", src: galleryVid3.url, alt: "Tour experience clip" },
+  { type: "image", src: galleryImg4.url, alt: "Captain with a fresh catch" },
+  { type: "image", src: galleryImg5.url, alt: "Fresh ceviche served on the boat" },
+];
+
+function GallerySection() {
+  const [idx, setIdx] = useState(0);
+  const total = galleryItems.length;
+  const current = galleryItems[idx];
+
+  useEffect(() => {
+    if (current.type === "video") return;
+    const t = setTimeout(() => setIdx((i) => (i + 1) % total), 4500);
+    return () => clearTimeout(t);
+  }, [idx, current.type, total]);
+
+  const go = (delta: number) => setIdx((i) => (i + delta + total) % total);
+
+  return (
+    <section id="gallery" className="bg-deep py-20 text-white sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <div className="mb-10 text-center">
+          <p className="text-sm font-bold uppercase tracking-widest text-sun">
+            Our Gallery
+          </p>
+          <h2 className="mt-2 font-display text-4xl font-black sm:text-5xl">
+            Real days on the water.
+          </h2>
+        </div>
+
+        <div className="relative overflow-hidden rounded-3xl bg-black shadow-2xl">
+          <div className="relative aspect-[4/3] w-full sm:aspect-[16/9]">
+            {current.type === "image" ? (
+              <img
+                key={current.src}
+                src={current.src}
+                alt={current.alt}
+                className="h-full w-full animate-in fade-in object-cover duration-700"
+              />
+            ) : (
+              <video
+                key={current.src}
+                src={current.src}
+                autoPlay
+                muted
+                playsInline
+                controls
+                onEnded={() => go(1)}
+                className="h-full w-full object-cover"
+              />
+            )}
+          </div>
+
+          <button
+            type="button"
+            aria-label="Previous"
+            onClick={() => go(-1)}
+            className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-deep shadow-lg transition hover:scale-110"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            aria-label="Next"
+            onClick={() => go(1)}
+            className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-deep shadow-lg transition hover:scale-110"
+          >
+            ›
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+            {galleryItems.map((_, i) => (
+              <button
+                key={i}
+                aria-label={`Slide ${i + 1}`}
+                onClick={() => setIdx(i)}
+                className={`h-2 rounded-full transition-all ${
+                  i === idx ? "w-8 bg-sun" : "w-2 bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 grid grid-cols-4 gap-2 sm:grid-cols-8">
+          {galleryItems.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`relative aspect-square overflow-hidden rounded-lg ring-2 transition ${
+                i === idx ? "ring-sun" : "ring-transparent hover:ring-white/40"
+              }`}
+            >
+              {item.type === "image" ? (
+                <img src={item.src} alt="" className="h-full w-full object-cover" />
+              ) : (
+                <video src={item.src} muted playsInline className="h-full w-full object-cover" />
+              )}
+              {item.type === "video" && (
+                <span className="absolute inset-0 grid place-items-center bg-black/30 text-white">
+                  ▶
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
