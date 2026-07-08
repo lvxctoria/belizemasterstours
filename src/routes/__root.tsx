@@ -84,14 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Top-rated San Pedro boat tours: snorkel Hol Chan Marine Reserve, swim with sharks & rays, Caye Caulker day trips, private charters & beach BBQ. 4.9★ on Google.",
       },
       { name: "author", content: "Belize Masters Tours" },
-      { property: "og:title", content: "Belize Masters Tours — San Pedro, Belize" },
+      { property: "og:title", content: "Belize Masters Tours — Snorkel Hol Chan & Shark Ray Alley from San Pedro" },
       {
         property: "og:description",
         content:
-          "Snorkel Hol Chan & Shark Ray Alley, Caye Caulker day trips, private charters and beach BBQ from San Pedro, Ambergris Caye.",
+          "Top-rated San Pedro boat tours: snorkel Hol Chan Marine Reserve, swim with sharks & rays, Caye Caulker day trips, private charters & beach BBQ. 4.9★ on Google.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Belize Masters Tours — Snorkel Hol Chan & Shark Ray Alley from San Pedro" },
+      { name: "twitter:description", content: "Top-rated San Pedro boat tours: snorkel Hol Chan Marine Reserve, swim with sharks & rays, Caye Caulker day trips, private charters & beach BBQ. 4.9★ on Google." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6e5a5ef0-6cc9-45c5-b55c-b0169ae6fe73/id-preview-3ffd897d--036865e5-8c99-437f-8c0c-47cfda6be977.lovable.app-1783544254302.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6e5a5ef0-6cc9-45c5-b55c-b0169ae6fe73/id-preview-3ffd897d--036865e5-8c99-437f-8c0c-47cfda6be977.lovable.app-1783544254302.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
