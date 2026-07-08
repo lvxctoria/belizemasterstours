@@ -149,7 +149,7 @@ function Index() {
                 onClick={() => setMobileOpen(false)}
                 className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="pointer-events-none h-5 w-5">
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
