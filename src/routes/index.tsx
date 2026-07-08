@@ -100,7 +100,7 @@ function Index() {
               B
             </span>
             <span className="font-display text-lg font-bold tracking-tight">
-              Belize Masters
+              Belize Masters Tours
             </span>
           </a>
           <div className="hidden items-center gap-8 text-sm font-medium text-white/90 md:flex">
