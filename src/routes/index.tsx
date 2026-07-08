@@ -3,6 +3,7 @@ import heroReef from "@/assets/hero-reef.jpg";
 import tourSharkRay from "@/assets/tour-sharkray.jpg";
 import tourCayeCaulker from "@/assets/tour-cayecaulker.jpg";
 import tourBbq from "@/assets/tour-bbq.jpg";
+import ChatWidget from "@/components/ChatWidget";
 
 export const Route = createFileRoute("/")({
   component: Index,
