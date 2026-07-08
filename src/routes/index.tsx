@@ -1,9 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroReef from "@/assets/hero-reef.jpg";
-import tourSharkRay from "@/assets/tour-sharkray.jpg";
-import tourCayeCaulker from "@/assets/tour-cayecaulker.jpg";
-import tourBbq from "@/assets/tour-bbq.jpg";
+import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
+import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
+import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
+import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
+import tourBacalarAsset from "@/assets/tour-bacalar.jpg.asset.json";
 import ChatWidget from "@/components/ChatWidget";
+
+const tourSharkRay = tourSharkRayAsset.url;
+const tourCayeCaulker = tourCayeCaulkerAsset.url;
+const tourBbq = tourBbqAsset.url;
+const tourCave = tourCaveAsset.url;
+const tourBacalar = tourBacalarAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -52,6 +60,24 @@ const tours: Tour[] = [
     desc: "Your own boat, your own captain. Reef fishing, snorkeling stops and a fresh-caught barbecue on a private beach.",
     image: tourBbq,
     highlights: ["Private group charter", "Catch & grill on the beach", "Fully customizable"],
+  },
+  {
+    title: "Bacalar Chico Snorkel & Beach BBQ",
+    price: "From $165",
+    duration: "Full Day",
+    tag: "Hidden Gem",
+    desc: "Cruise the mangrove river hunting for manatees, snorkel pristine Rocky Point reef, then feast on a fresh BBQ lunch on a secluded beach — capped with sharks and rays on the way home.",
+    image: tourBacalar,
+    highlights: ["Manatee spotting river", "Rocky Point reef snorkel", "Private beach BBQ lunch"],
+  },
+  {
+    title: "Cave Tubing & Zip Line Adventure",
+    price: "From $230",
+    duration: "Full Day",
+    tag: "Epic Adventure",
+    desc: "The ultimate mainland day: soar through the jungle canopy on zip lines, then float on a tube through ancient Mayan caves. Boat transfer, breakfast and lunch all included.",
+    image: tourCave,
+    highlights: ["Jungle zip lining", "Guided cave tubing", "Breakfast & lunch included"],
   },
 ];
 
