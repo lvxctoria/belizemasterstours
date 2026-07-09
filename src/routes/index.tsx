@@ -474,6 +474,15 @@ function Stars() {
 type GalleryItem = { type: "image" | "video"; src: string; alt: string };
 
 const galleryItems: GalleryItem[] = [
+  { type: "image", src: galleryNew1.url, alt: "Belize Master Tour boat at sunset" },
+  { type: "image", src: galleryNew2.url, alt: "Snorkeling with nurse sharks at Shark Ray Alley" },
+  { type: "image", src: galleryNew3.url, alt: "Feeding stingrays from the boat" },
+  { type: "image", src: galleryNew4.url, alt: "Dolphins swimming beside the tour boat" },
+  { type: "image", src: galleryNew5.url, alt: "Guests aboard for a day on the reef" },
+  { type: "image", src: galleryNew6.url, alt: "Captain guiding a mangrove tour" },
+  { type: "image", src: galleryNew7.url, alt: "Guest with a fresh barracuda catch" },
+  { type: "image", src: galleryNew8.url, alt: "Captain with a trophy jack fish" },
+  { type: "image", src: galleryNew9.url, alt: "Beach BBQ on a secluded island" },
   { type: "image", src: galleryImg1.url, alt: "Guests on a mangrove boat tour" },
   { type: "video", src: galleryVid1.url, alt: "Tour highlights video" },
   { type: "image", src: galleryImg2.url, alt: "Beach BBQ feast on the sand" },
