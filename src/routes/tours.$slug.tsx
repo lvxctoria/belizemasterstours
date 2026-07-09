@@ -45,7 +45,7 @@ function TourNotFound() {
 }
 
 function TourDetail() {
-  const { tour } = Route.useLoaderData();
+  const { tour } = Route.useLoaderData() as { tour: Tour };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
