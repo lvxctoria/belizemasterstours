@@ -1,10 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroReef from "@/assets/hero-reef.jpg";
 import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
 import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
-import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
-import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
-import tourBacalarAsset from "@/assets/gallery-img_6029.jpeg.asset.json";
 import galleryImg1 from "@/assets/gallery-img_6029.jpeg.asset.json";
 import galleryImg2 from "@/assets/gallery-img_60242.jpeg.asset.json";
 import galleryImg3 from "@/assets/gallery-img_6022.jpeg.asset.json";
@@ -24,80 +21,16 @@ import galleryNew8 from "@/assets/gallery-new-img_60262.jpeg.asset.json";
 import galleryNew9 from "@/assets/gallery-new-img_60282.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
+import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
 
 const tourSharkRay = tourSharkRayAsset.url;
 const tourCayeCaulker = tourCayeCaulkerAsset.url;
-const tourBbq = tourBbqAsset.url;
-const tourCave = tourCaveAsset.url;
-const tourBacalar = tourBacalarAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHONE = "+5016228957";
-const PHONE_DISPLAY = "+501 622-8957";
-const WHATSAPP = `https://wa.me/5016228957?text=${encodeURIComponent(
-  "Hi Belize Masters Tours! I'd like to book a tour."
-)}`;
 
-type Tour = {
-  title: string;
-  price: string;
-  duration: string;
-  tag: string;
-  desc: string;
-  image: string;
-  highlights: string[];
-};
-
-const tours: Tour[] = [
-  {
-    title: "Hol Chan & Shark Ray Alley",
-    price: "From $75",
-    duration: "3h 30m",
-    tag: "Most Popular",
-    desc: "Snorkel the crown jewel of Belize's barrier reef and swim beside nurse sharks and stingrays in crystal-clear water.",
-    image: tourSharkRay,
-    highlights: ["Hol Chan Marine Reserve", "Swim with sharks & rays", "All gear included"],
-  },
-  {
-    title: "Caye Caulker Island Day Trip",
-    price: "From $100",
-    duration: "7h",
-    tag: "Full Day",
-    desc: "Two-reef snorkel plus island time on laid-back Caye Caulker — fresh seafood, palm trees and the famous Split.",
-    image: tourCayeCaulker,
-    highlights: ["Hol Chan + Shark Ray Alley", "Free time on Caye Caulker", "Round-trip boat"],
-  },
-  {
-    title: "Fishing, Snorkel & Beach BBQ",
-    price: "From $135",
-    duration: "Private Day",
-    tag: "Private Charter",
-    desc: "Your own boat, your own captain. Reef fishing, snorkeling stops and a fresh-caught barbecue on a private beach.",
-    image: tourBbq,
-    highlights: ["Private group charter", "Catch & grill on the beach", "Fully customizable"],
-  },
-  {
-    title: "Bacalar Chico Snorkel & Beach BBQ",
-    price: "From $165",
-    duration: "Full Day",
-    tag: "Hidden Gem",
-    desc: "Cruise the mangrove river hunting for manatees, snorkel pristine Rocky Point reef, then feast on a fresh BBQ lunch on a secluded beach — capped with sharks and rays on the way home.",
-    image: tourBacalar,
-    highlights: ["Manatee spotting river", "Rocky Point reef snorkel", "Private beach BBQ lunch"],
-  },
-  {
-    title: "Cave Tubing & Zip Line Adventure",
-    price: "From $230",
-    duration: "Full Day",
-    tag: "Epic Adventure",
-    desc: "The ultimate mainland day: soar through the jungle canopy on zip lines, then float on a tube through ancient Mayan caves. Boat transfer, breakfast and lunch all included.",
-    image: tourCave,
-    highlights: ["Jungle zip lining", "Guided cave tubing", "Breakfast & lunch included"],
-  },
-];
 
 function Index() {
   const [mobileOpen, setMobileOpen] = useState(false);
