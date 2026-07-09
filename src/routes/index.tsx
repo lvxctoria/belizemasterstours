@@ -227,14 +227,23 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={WHATSAPP}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex items-center justify-center rounded-full bg-deep px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
-                  >
-                    Book this tour →
-                  </a>
+                  <div className="mt-6 flex flex-col gap-2">
+                    <a
+                      href={WHATSAPP}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full gradient-sun px-5 py-3 text-sm font-bold text-deep shadow transition hover:scale-[1.02]"
+                    >
+                      Book this tour →
+                    </a>
+                    <Link
+                      to="/tours/$slug"
+                      params={{ slug: t.slug }}
+                      className="inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-deep transition hover:bg-secondary/70"
+                    >
+                      View tour details
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}
