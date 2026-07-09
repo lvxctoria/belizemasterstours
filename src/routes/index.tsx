@@ -1,10 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroReef from "@/assets/hero-reef.jpg";
 import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
 import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
-import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
-import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
-import tourBacalarAsset from "@/assets/gallery-img_6029.jpeg.asset.json";
 import galleryImg1 from "@/assets/gallery-img_6029.jpeg.asset.json";
 import galleryImg2 from "@/assets/gallery-img_60242.jpeg.asset.json";
 import galleryImg3 from "@/assets/gallery-img_6022.jpeg.asset.json";
@@ -24,80 +21,16 @@ import galleryNew8 from "@/assets/gallery-new-img_60262.jpeg.asset.json";
 import galleryNew9 from "@/assets/gallery-new-img_60282.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
+import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
 
 const tourSharkRay = tourSharkRayAsset.url;
 const tourCayeCaulker = tourCayeCaulkerAsset.url;
-const tourBbq = tourBbqAsset.url;
-const tourCave = tourCaveAsset.url;
-const tourBacalar = tourBacalarAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHONE = "+5016228957";
-const PHONE_DISPLAY = "+501 622-8957";
-const WHATSAPP = `https://wa.me/5016228957?text=${encodeURIComponent(
-  "Hi Belize Masters Tours! I'd like to book a tour."
-)}`;
 
-type Tour = {
-  title: string;
-  price: string;
-  duration: string;
-  tag: string;
-  desc: string;
-  image: string;
-  highlights: string[];
-};
-
-const tours: Tour[] = [
-  {
-    title: "Hol Chan & Shark Ray Alley",
-    price: "From $75",
-    duration: "3h 30m",
-    tag: "Most Popular",
-    desc: "Snorkel the crown jewel of Belize's barrier reef and swim beside nurse sharks and stingrays in crystal-clear water.",
-    image: tourSharkRay,
-    highlights: ["Hol Chan Marine Reserve", "Swim with sharks & rays", "All gear included"],
-  },
-  {
-    title: "Caye Caulker Island Day Trip",
-    price: "From $100",
-    duration: "7h",
-    tag: "Full Day",
-    desc: "Two-reef snorkel plus island time on laid-back Caye Caulker — fresh seafood, palm trees and the famous Split.",
-    image: tourCayeCaulker,
-    highlights: ["Hol Chan + Shark Ray Alley", "Free time on Caye Caulker", "Round-trip boat"],
-  },
-  {
-    title: "Fishing, Snorkel & Beach BBQ",
-    price: "From $135",
-    duration: "Private Day",
-    tag: "Private Charter",
-    desc: "Your own boat, your own captain. Reef fishing, snorkeling stops and a fresh-caught barbecue on a private beach.",
-    image: tourBbq,
-    highlights: ["Private group charter", "Catch & grill on the beach", "Fully customizable"],
-  },
-  {
-    title: "Bacalar Chico Snorkel & Beach BBQ",
-    price: "From $165",
-    duration: "Full Day",
-    tag: "Hidden Gem",
-    desc: "Cruise the mangrove river hunting for manatees, snorkel pristine Rocky Point reef, then feast on a fresh BBQ lunch on a secluded beach — capped with sharks and rays on the way home.",
-    image: tourBacalar,
-    highlights: ["Manatee spotting river", "Rocky Point reef snorkel", "Private beach BBQ lunch"],
-  },
-  {
-    title: "Cave Tubing & Zip Line Adventure",
-    price: "From $230",
-    duration: "Full Day",
-    tag: "Epic Adventure",
-    desc: "The ultimate mainland day: soar through the jungle canopy on zip lines, then float on a tube through ancient Mayan caves. Boat transfer, breakfast and lunch all included.",
-    image: tourCave,
-    highlights: ["Jungle zip lining", "Guided cave tubing", "Breakfast & lunch included"],
-  },
-];
 
 function Index() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -294,14 +227,23 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={WHATSAPP}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex items-center justify-center rounded-full bg-deep px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
-                  >
-                    Book this tour →
-                  </a>
+                  <div className="mt-6 flex flex-col gap-2">
+                    <a
+                      href={WHATSAPP}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full gradient-sun px-5 py-3 text-sm font-bold text-deep shadow transition hover:scale-[1.02]"
+                    >
+                      Book this tour →
+                    </a>
+                    <Link
+                      to="/tours/$slug"
+                      params={{ slug: t.slug }}
+                      className="inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-deep transition hover:bg-secondary/70"
+                    >
+                      View tour details
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}
@@ -495,16 +437,33 @@ const galleryItems: GalleryItem[] = [
 
 function GallerySection() {
   const [idx, setIdx] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const total = galleryItems.length;
   const current = galleryItems[idx];
 
   useEffect(() => {
-    if (current.type === "video") return;
+    if (current.type === "video" || lightboxOpen) return;
     const t = setTimeout(() => setIdx((i) => (i + 1) % total), 4500);
     return () => clearTimeout(t);
-  }, [idx, current.type, total]);
+  }, [idx, current.type, total, lightboxOpen]);
 
   const go = (delta: number) => setIdx((i) => (i + delta + total) % total);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxOpen(false);
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxOpen]);
 
   return (
     <section id="gallery" className="scroll-mt-24 bg-deep py-20 text-white sm:py-28">
@@ -516,17 +475,25 @@ function GallerySection() {
           <h2 className="mt-2 font-display text-4xl font-black sm:text-5xl">
             Real days on the water.
           </h2>
+          <p className="mt-3 text-sm text-white/70">Tap any photo to open the lightbox</p>
         </div>
 
         <div className="relative overflow-hidden rounded-3xl bg-black shadow-2xl">
           <div className="relative aspect-[4/3] w-full sm:aspect-[16/9]">
             {current.type === "image" ? (
-              <img
-                key={current.src}
-                src={current.src}
-                alt={current.alt}
-                className="h-full w-full animate-in fade-in object-cover duration-700"
-              />
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(true)}
+                aria-label="Open lightbox"
+                className="block h-full w-full"
+              >
+                <img
+                  key={current.src}
+                  src={current.src}
+                  alt={current.alt}
+                  className="h-full w-full animate-in fade-in cursor-zoom-in object-cover duration-700"
+                />
+              </button>
             ) : (
               <video
                 key={current.src}
@@ -576,7 +543,10 @@ function GallerySection() {
           {galleryItems.map((item, i) => (
             <button
               key={i}
-              onClick={() => setIdx(i)}
+              onClick={() => {
+                setIdx(i);
+                if (item.type === "image") setLightboxOpen(true);
+              }}
               className={`relative aspect-square overflow-hidden rounded-lg ring-2 transition ${
                 i === idx ? "ring-sun" : "ring-transparent hover:ring-white/40"
               }`}
@@ -595,6 +565,62 @@ function GallerySection() {
           ))}
         </div>
       </div>
+
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur"
+          onClick={() => setLightboxOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            aria-label="Close lightbox"
+            onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+            className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20"
+          >
+            ×
+          </button>
+          <button
+            type="button"
+            aria-label="Previous"
+            onClick={(e) => { e.stopPropagation(); go(-1); }}
+            className="absolute left-4 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            aria-label="Next"
+            onClick={(e) => { e.stopPropagation(); go(1); }}
+            className="absolute right-4 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20"
+          >
+            ›
+          </button>
+
+          <div className="relative max-h-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+            {current.type === "image" ? (
+              <img
+                src={current.src}
+                alt={current.alt}
+                className="max-h-[85vh] w-auto rounded-xl object-contain"
+              />
+            ) : (
+              <video
+                src={current.src}
+                autoPlay
+                controls
+                playsInline
+                className="max-h-[85vh] w-auto rounded-xl"
+              />
+            )}
+            <p className="mt-3 text-center text-sm text-white/80">
+              {current.alt} · {idx + 1} / {total}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
+
