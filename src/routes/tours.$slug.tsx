@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
+import { tours, WHATSAPP, PHONE, PHONE_DISPLAY, type Tour } from "@/lib/tours";
 
 export const Route = createFileRoute("/tours/$slug")({
   loader: ({ params }) => {
