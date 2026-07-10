@@ -2,23 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroReef from "@/assets/hero-reef.jpg";
 import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
 import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
-import galleryImg1 from "@/assets/gallery-img_6029.jpeg.asset.json";
-import galleryImg2 from "@/assets/gallery-img_60242.jpeg.asset.json";
-import galleryImg3 from "@/assets/gallery-img_6022.jpeg.asset.json";
-import galleryImg4 from "@/assets/gallery-img_6026.jpeg.asset.json";
-import galleryImg5 from "@/assets/gallery-img_5560.jpeg.asset.json";
-import galleryVid1 from "@/assets/gallery-video-2025-10-29-21-21-38-2.mov.asset.json";
-import galleryVid2 from "@/assets/gallery-video-2025-10-29-21-21-38.mov.asset.json";
-import galleryVid3 from "@/assets/gallery-video-2025-10-29-21-21-39.mov.asset.json";
-import galleryNew1 from "@/assets/gallery-new-img_6030.jpeg.asset.json";
-import galleryNew2 from "@/assets/gallery-new-img_6025.jpeg.asset.json";
-import galleryNew3 from "@/assets/gallery-new-img_60152.jpeg.asset.json";
-import galleryNew4 from "@/assets/gallery-new-img_6016.jpeg.asset.json";
-import galleryNew5 from "@/assets/gallery-new-img_6020.jpeg.asset.json";
-import galleryNew6 from "@/assets/gallery-new-img_6021.jpeg.asset.json";
-import galleryNew7 from "@/assets/gallery-new-img_60272.jpeg.asset.json";
-import galleryNew8 from "@/assets/gallery-new-img_60262.jpeg.asset.json";
-import galleryNew9 from "@/assets/gallery-new-img_60282.jpeg.asset.json";
+import galleryV1 from "@/assets/gallery-v3-IMG_6058.jpeg.asset.json";
+import galleryV2 from "@/assets/gallery-v3-IMG_6059.jpeg.asset.json";
+import galleryV3 from "@/assets/gallery-v3-IMG_6061.jpeg.asset.json";
+import galleryV4 from "@/assets/gallery-v3-IMG_6063.jpeg.asset.json";
+import galleryV5 from "@/assets/gallery-v3-IMG_6065.jpeg.asset.json";
+import galleryV6 from "@/assets/gallery-v3-IMG_6067.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
 import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
@@ -416,23 +405,12 @@ function Stars() {
 type GalleryItem = { type: "image" | "video"; src: string; alt: string };
 
 const galleryItems: GalleryItem[] = [
-  { type: "image", src: galleryNew1.url, alt: "Belize Master Tour boat at sunset" },
-  { type: "image", src: galleryNew2.url, alt: "Snorkeling with nurse sharks at Shark Ray Alley" },
-  { type: "image", src: galleryNew3.url, alt: "Feeding stingrays from the boat" },
-  { type: "image", src: galleryNew4.url, alt: "Dolphins swimming beside the tour boat" },
-  { type: "image", src: galleryNew5.url, alt: "Guests aboard for a day on the reef" },
-  { type: "image", src: galleryNew6.url, alt: "Captain guiding a mangrove tour" },
-  { type: "image", src: galleryNew7.url, alt: "Guest with a fresh barracuda catch" },
-  { type: "image", src: galleryNew8.url, alt: "Captain with a trophy jack fish" },
-  { type: "image", src: galleryNew9.url, alt: "Beach BBQ on a secluded island" },
-  { type: "image", src: galleryImg1.url, alt: "Guests on a mangrove boat tour" },
-  { type: "video", src: galleryVid1.url, alt: "Tour highlights video" },
-  { type: "image", src: galleryImg2.url, alt: "Beach BBQ feast on the sand" },
-  { type: "video", src: galleryVid2.url, alt: "On-the-water moments" },
-  { type: "image", src: galleryImg3.url, alt: "Exploring Mayan ruins" },
-  { type: "video", src: galleryVid3.url, alt: "Tour experience clip" },
-  { type: "image", src: galleryImg4.url, alt: "Captain with a fresh catch" },
-  { type: "image", src: galleryImg5.url, alt: "Fresh ceviche served on the boat" },
+  { type: "image", src: galleryV1.url, alt: "Swimming with nurse sharks at Shark Ray Alley" },
+  { type: "image", src: galleryV2.url, alt: "Group visiting the Altun Ha Mayan ruins" },
+  { type: "image", src: galleryV3.url, alt: "Feeding a giant tarpon from the boat" },
+  { type: "image", src: galleryV4.url, alt: "Sea turtle and jack fish underwater" },
+  { type: "image", src: galleryV5.url, alt: "Cave tubing through ancient Mayan caves" },
+  { type: "image", src: galleryV6.url, alt: "Dolphins swimming beside the tour boat" },
 ];
 
 function GallerySection() {
