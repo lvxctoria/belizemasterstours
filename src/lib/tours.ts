@@ -3,6 +3,7 @@ import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json"
 import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
 import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
 import tourBacalarAsset from "@/assets/gallery-img_6029.jpeg.asset.json";
+import { assetUrl } from "./asset-url";
 
 export type Tour = {
   slug: string;
