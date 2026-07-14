@@ -11,9 +11,10 @@ import galleryV6 from "@/assets/gallery-v3-IMG_6067.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
 import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
+import { assetUrl } from "@/lib/asset-url";
 
-const tourSharkRay = tourSharkRayAsset.url;
-const tourCayeCaulker = tourCayeCaulkerAsset.url;
+const tourSharkRay = assetUrl(tourSharkRayAsset.url);
+const tourCayeCaulker = assetUrl(tourCayeCaulkerAsset.url);
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -405,12 +406,12 @@ function Stars() {
 type GalleryItem = { type: "image" | "video"; src: string; alt: string };
 
 const galleryItems: GalleryItem[] = [
-  { type: "image", src: galleryV1.url, alt: "Swimming with nurse sharks at Shark Ray Alley" },
-  { type: "image", src: galleryV2.url, alt: "Group visiting the Altun Ha Mayan ruins" },
-  { type: "image", src: galleryV3.url, alt: "Feeding a giant tarpon from the boat" },
-  { type: "image", src: galleryV4.url, alt: "Sea turtle and jack fish underwater" },
-  { type: "image", src: galleryV5.url, alt: "Cave tubing through ancient Mayan caves" },
-  { type: "image", src: galleryV6.url, alt: "Dolphins swimming beside the tour boat" },
+  { type: "image", src: assetUrl(galleryV1.url), alt: "Swimming with nurse sharks at Shark Ray Alley" },
+  { type: "image", src: assetUrl(galleryV2.url), alt: "Group visiting the Altun Ha Mayan ruins" },
+  { type: "image", src: assetUrl(galleryV3.url), alt: "Feeding a giant tarpon from the boat" },
+  { type: "image", src: assetUrl(galleryV4.url), alt: "Sea turtle and jack fish underwater" },
+  { type: "image", src: assetUrl(galleryV5.url), alt: "Cave tubing through ancient Mayan caves" },
+  { type: "image", src: assetUrl(galleryV6.url), alt: "Dolphins swimming beside the tour boat" },
 ];
 
 function GallerySection() {
