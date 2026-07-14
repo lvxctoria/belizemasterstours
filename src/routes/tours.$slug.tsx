@@ -7,22 +7,58 @@ export const Route = createFileRoute("/tours/$slug")({
     if (!tour) throw notFound();
     return { tour };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return { meta: [{ title: "Tour not found — Belize Masters Tours" }, { name: "robots", content: "noindex" }] };
     }
     const { tour } = loaderData;
-    const title = `${tour.title} — Belize Masters Tours`;
-    const description = tour.desc;
+    const title = `${tour.title} in San Pedro, Belize | Belize Masters Tours`;
+    const description = `${tour.desc} Book this ${tour.duration} tour from San Pedro, Ambergris Caye with local guides — ${tour.price} per person.`;
+    const url = `https://belizemasterstours.lovable.app/tours/${params.slug}`;
+    const image = tour.image.startsWith("http") ? tour.image : `https://belizemasterstours.lovable.app${tour.image}`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        { name: "keywords", content: `${tour.title}, San Pedro Belize tours, Ambergris Caye tours, ${tour.tag}, Belize snorkeling, Belize excursions, Belize Masters Tours` },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
-        { property: "og:image", content: tour.image },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        { property: "og:image", content: image },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: tour.image },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: image },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristTrip",
+            name: tour.title,
+            description: tour.longDesc.join(" "),
+            image,
+            url,
+            touristType: "Snorkeling, adventure, family, private charter",
+            provider: {
+              "@type": "TravelAgency",
+              name: "Belize Masters Tours",
+              telephone: "+501-622-8957",
+              url: "https://belizemasterstours.lovable.app/",
+            },
+            offers: {
+              "@type": "Offer",
+              price: tour.price.replace(/[^0-9.]/g, ""),
+              priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+              url,
+            },
+            itinerary: tour.highlights.map((h) => ({ "@type": "Place", name: h })),
+          }),
+        },
       ],
     };
   },

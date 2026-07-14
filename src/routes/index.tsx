@@ -184,7 +184,7 @@ function Index() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={t.image}
-                    alt={t.title}
+                    alt={`${t.title} — ${t.tag} tour from San Pedro, Belize`}
                     width={1200}
                     height={900}
                     loading="lazy"
@@ -263,8 +263,8 @@ function Index() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img src={tourSharkRay} alt="Snorkeling with rays" width={1200} height={900} loading="lazy" className="aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
-            <img src={tourCayeCaulker} alt="Caye Caulker" width={1200} height={900} loading="lazy" className="mt-10 aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
+            <img src={tourSharkRay} alt="Snorkeling with stingrays at Shark Ray Alley near San Pedro, Belize" width={1200} height={900} loading="lazy" className="aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
+            <img src={tourCayeCaulker} alt="Turquoise Caribbean water at Caye Caulker island day trip from Ambergris Caye, Belize" width={1200} height={900} loading="lazy" className="mt-10 aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
           </div>
         </div>
       </section>
@@ -531,7 +531,7 @@ function GallerySection() {
               }`}
             >
               {item.type === "image" ? (
-                <img src={item.src} alt="" className="h-full w-full object-cover" />
+                <img src={item.src} alt="Belize Masters Tours guests snorkeling and boating in San Pedro, Ambergris Caye" className="h-full w-full object-cover" />
               ) : (
                 <video src={item.src} muted playsInline className="h-full w-full object-cover" />
               )}
