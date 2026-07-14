@@ -11,9 +11,10 @@ import galleryV6 from "@/assets/gallery-v3-IMG_6067.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
 import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
+import { assetUrl } from "@/lib/asset-url";
 
-const tourSharkRay = tourSharkRayAsset.url;
-const tourCayeCaulker = tourCayeCaulkerAsset.url;
+const tourSharkRay = assetUrl(tourSharkRayAsset.url);
+const tourCayeCaulker = assetUrl(tourCayeCaulkerAsset.url);
 
 export const Route = createFileRoute("/")({
   component: Index,
