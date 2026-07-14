@@ -1,9 +1,9 @@
-import tourSharkRayAsset from "@/assets/tour-sharkray-real.jpg.asset.json";
-import tourCayeCaulkerAsset from "@/assets/tour-cayecaulker-real.jpg.asset.json";
-import tourBbqAsset from "@/assets/tour-bbq-real.jpg.asset.json";
-import tourCaveAsset from "@/assets/tour-cave.jpg.asset.json";
-import tourBacalarAsset from "@/assets/gallery-img_6029.jpeg.asset.json";
-import { assetUrl } from "./asset-url";
+// Tour card images are served from /public so they ship with any host (Vercel, GitHub Pages, Lovable).
+const tourSharkRayAsset = { url: "/tours/hol-chan.jpg" };
+const tourCayeCaulkerAsset = { url: "/tours/caye-caulker.jpg" };
+const tourBbqAsset = { url: "/tours/bbq.jpg" };
+const tourCaveAsset = { url: "/tours/cave.jpg" };
+const tourBacalarAsset = { url: "/tours/bacalar.jpg" };
 
 export type Tour = {
   slug: string;
