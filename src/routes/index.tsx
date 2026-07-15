@@ -93,6 +93,7 @@ function Index() {
               <a href="#gallery" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Gallery</a>
               <a href="#reviews" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Reviews</a>
               <a href="#contact" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Contact</a>
+              <Link to="/cancellation-policy" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Cancellation Policy</Link>
               <a
                 href={WHATSAPP}
                 target="_blank"
