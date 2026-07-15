@@ -22,6 +22,8 @@ export type Tour = {
 
 export const PHONE = "+5016228957";
 export const PHONE_DISPLAY = "+501 622-8957";
+export const PHONE_SECONDARY = "+5016016181";
+export const PHONE_SECONDARY_DISPLAY = "+501 601-6181";
 export const WHATSAPP = `https://wa.me/5016228957?text=${encodeURIComponent(
   "Hi Belize Masters Tours! I'd like to book a tour."
 )}`;
