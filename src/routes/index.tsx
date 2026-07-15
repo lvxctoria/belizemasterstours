@@ -373,7 +373,10 @@ function Index() {
             </span>
             <span className="font-display font-bold">Belize Masters Tours</span>
           </div>
-          <p>© {new Date().getFullYear()} Belize Masters Tours · San Pedro, Belize</p>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
+            <Link to="/cancellation-policy" className="hover:text-white">Cancellation Policy</Link>
+            <p>© {new Date().getFullYear()} Belize Masters Tours · San Pedro, Belize</p>
+          </div>
         </div>
       </footer>
 
