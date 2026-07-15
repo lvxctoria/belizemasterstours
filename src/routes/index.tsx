@@ -10,7 +10,7 @@ import galleryV5 from "@/assets/gallery-v3-IMG_6065.jpeg.asset.json";
 import galleryV6 from "@/assets/gallery-v3-IMG_6067.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
-import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
+import { tours, WHATSAPP, PHONE, PHONE_DISPLAY, PHONE_SECONDARY, PHONE_SECONDARY_DISPLAY } from "@/lib/tours";
 import { assetUrl } from "@/lib/asset-url";
 
 const tourSharkRay = assetUrl(tourSharkRayAsset.url);
