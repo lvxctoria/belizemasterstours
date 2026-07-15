@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { tours, WHATSAPP, PHONE, PHONE_DISPLAY, type Tour } from "@/lib/tours";
+import { tours, WHATSAPP, PHONE, PHONE_DISPLAY, PHONE_SECONDARY, PHONE_SECONDARY_DISPLAY, type Tour } from "@/lib/tours";
 
 export const Route = createFileRoute("/tours/$slug")({
   loader: ({ params }) => {
@@ -176,6 +176,12 @@ function TourDetail() {
                 className="mt-3 flex items-center justify-center rounded-full bg-deep px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
               >
                 Call {PHONE_DISPLAY}
+              </a>
+              <a
+                href={`tel:${PHONE_SECONDARY}`}
+                className="mt-3 flex items-center justify-center rounded-full bg-deep px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
+              >
+                Call {PHONE_SECONDARY_DISPLAY}
               </a>
               <Link
                 to="/"

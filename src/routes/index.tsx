@@ -10,7 +10,7 @@ import galleryV5 from "@/assets/gallery-v3-IMG_6065.jpeg.asset.json";
 import galleryV6 from "@/assets/gallery-v3-IMG_6067.jpeg.asset.json";
 import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
-import { tours, WHATSAPP, PHONE, PHONE_DISPLAY } from "@/lib/tours";
+import { tours, WHATSAPP, PHONE, PHONE_DISPLAY, PHONE_SECONDARY, PHONE_SECONDARY_DISPLAY } from "@/lib/tours";
 import { assetUrl } from "@/lib/asset-url";
 
 const tourSharkRay = assetUrl(tourSharkRayAsset.url);
@@ -42,6 +42,7 @@ function Index() {
             <a href="#gallery" className="hover:text-white">Gallery</a>
             <a href="#reviews" className="hover:text-white">Reviews</a>
             <a href="#contact" className="hover:text-white">Contact</a>
+            <Link to="/cancellation-policy" className="hover:text-white">Cancellation Policy</Link>
           </div>
           <div className="flex items-center gap-3">
             <a
@@ -92,6 +93,7 @@ function Index() {
               <a href="#gallery" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Gallery</a>
               <a href="#reviews" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Reviews</a>
               <a href="#contact" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Contact</a>
+              <Link to="/cancellation-policy" onClick={() => setMobileOpen(false)} className="py-2 hover:text-white">Cancellation Policy</Link>
               <a
                 href={WHATSAPP}
                 target="_blank"
@@ -343,11 +345,18 @@ function Index() {
                   >
                     Call {PHONE_DISPLAY}
                   </a>
+                  <a
+                    href={`tel:${PHONE_SECONDARY}`}
+                    className="rounded-full bg-white/90 px-6 py-3 text-sm font-bold text-deep shadow transition hover:bg-white"
+                  >
+                    Call {PHONE_SECONDARY_DISPLAY}
+                  </a>
                 </div>
               </div>
               <div className="grid gap-3 rounded-2xl bg-white/70 p-6 text-sm text-deep backdrop-blur">
                 <Info label="Address" value="D.F.C 31.A, 1 Front Street, San Pedro" />
-                <Info label="Phone" value={PHONE_DISPLAY} />
+                <Info label="Primary phone" value={PHONE_DISPLAY} />
+                <Info label="Secondary phone" value={PHONE_SECONDARY_DISPLAY} />
                 <Info label="Hours" value="Daily · Closes 10:30 pm" />
                 <Info label="Website" value="belizemastertour.com" />
               </div>
@@ -364,7 +373,10 @@ function Index() {
             </span>
             <span className="font-display font-bold">Belize Masters Tours</span>
           </div>
-          <p>© {new Date().getFullYear()} Belize Masters Tours · San Pedro, Belize</p>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
+            <Link to="/cancellation-policy" className="hover:text-white">Cancellation Policy</Link>
+            <p>© {new Date().getFullYear()} Belize Masters Tours · San Pedro, Belize</p>
+          </div>
         </div>
       </footer>
 
