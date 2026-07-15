@@ -343,11 +343,18 @@ function Index() {
                   >
                     Call {PHONE_DISPLAY}
                   </a>
+                  <a
+                    href={`tel:${PHONE_SECONDARY}`}
+                    className="rounded-full bg-white/90 px-6 py-3 text-sm font-bold text-deep shadow transition hover:bg-white"
+                  >
+                    Call {PHONE_SECONDARY_DISPLAY}
+                  </a>
                 </div>
               </div>
               <div className="grid gap-3 rounded-2xl bg-white/70 p-6 text-sm text-deep backdrop-blur">
                 <Info label="Address" value="D.F.C 31.A, 1 Front Street, San Pedro" />
-                <Info label="Phone" value={PHONE_DISPLAY} />
+                <Info label="Primary phone" value={PHONE_DISPLAY} />
+                <Info label="Secondary phone" value={PHONE_SECONDARY_DISPLAY} />
                 <Info label="Hours" value="Daily · Closes 10:30 pm" />
                 <Info label="Website" value="belizemastertour.com" />
               </div>
