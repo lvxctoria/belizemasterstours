@@ -42,6 +42,7 @@ function Index() {
             <a href="#gallery" className="hover:text-white">Gallery</a>
             <a href="#reviews" className="hover:text-white">Reviews</a>
             <a href="#contact" className="hover:text-white">Contact</a>
+            <Link to="/cancellation-policy" className="hover:text-white">Cancellation Policy</Link>
           </div>
           <div className="flex items-center gap-3">
             <a
